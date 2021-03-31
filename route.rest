@@ -1,0 +1,39 @@
+###
+POST http://localhost:3000/auth/reset
+Content-Type: application/json
+
+{
+"email":"love22891@live.fr"
+}
+###
+GET http://localhost:3000/users
+###
+GET http://localhost:3000/users/6062ded4d2b10a3704197ea7
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+   "nom":"hello", 
+"prenom":"there",
+"email":"a1@live.fr",
+"password":"hi",
+"role":"admin",
+"verified":true
+
+}
+
+
+###
+DELETE http://localhost:3000/users/606382ce0a5a14156cde6cb4
+###
+patch http://localhost:3000/users/606299dc5595f52f74039143
+Content-Type: application/json
+
+{
+"password":"ghassen"
+}
+###
+GET http://localhost:3000/users/6062ded4d2b10a3704197ea7
+###
+GET http://localhost:3000/profile/current
