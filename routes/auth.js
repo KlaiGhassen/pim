@@ -16,7 +16,7 @@ router.post('/reset', (req, res) => {
 
         var transporter = nodemailer.createTransport({
           service: 'gmail',
-          auth: {
+          auth: { 
             user: 'pimmpim40@gmail.com',
             pass: '123456789azer@@'
           }
@@ -119,6 +119,7 @@ router.post("/", (req, res) => {
     console.log(req.body)
     let email = req.body.email;
     let password = req.body.password;
+    console.log(email,password)
     userdb.find({ email: email, password: password }).then((user) => {
       compte = user[0];
       if (compte) {

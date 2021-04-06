@@ -123,6 +123,11 @@ router.patch('/:id', getUser, (req, res) => {
     
     
       }
+      if (req.body.accepted != null) {
+        res.user.accepted = req.body.accepted
+    
+    
+      }
       try {
     
         res.user.save().then((updateduser) => {

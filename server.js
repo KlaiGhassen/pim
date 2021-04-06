@@ -26,12 +26,15 @@ app.use(express.json())
 const pimRouter = require('./routes/user');
 const authUser = require('./routes/auth');
 const profile=require('./routes/profile');
-
+const msg=require('./routes/messages')
 //change when u need to make the token works
 app.use('/users', pimRouter);
 app.use('/auth', authUser);
+
 app.use(verifyAdminToken);
 app.use('/profile' , profile);
+app.use('/message',msg);
+
 
 
 app.listen(3000, () => {

@@ -37,3 +37,16 @@ Content-Type: application/json
 GET http://localhost:3000/users/6062ded4d2b10a3704197ea7
 ###
 GET http://localhost:3000/profile/current
+###
+POST http://localhost:3000/message
+Content-Type: application/json
+
+{
+"whoSend":"6063b1da3bfe475e64536de8", 
+"toSend":"6063b97dfd9195404c51ccad",
+"content":"messageee "
+
+
+}
+###
+GET http://localhost:3000/message/tosend/6063b1da3bfe475e64536de8

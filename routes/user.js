@@ -5,7 +5,20 @@ var nodemailer = require('nodemailer');
 var code;
 
 
+router.get('/role', (req, res) => {
+  try {
 
+    userdb.find({role:"user"}).then(users => {
+
+      res.json(users);
+
+    })
+  }
+  catch (err) {
+    res.status(500).json({ message: err.message })
+
+  }
+})
 //getting all
 router.get('/', (req, res) => {
   try {
@@ -85,7 +98,6 @@ router.delete('/:id', getUser, async (req, res) => {
 //update one
 
 router.patch('/:id', getUser, (req, res) => {
-console.log(req.body);
   if (req.body.nom != null) {
     res.user.nom = req.body.nom
 
@@ -115,10 +127,15 @@ console.log(req.body);
 
 
   }
+  if (req.body.accepted != null) {
+    res.user.accepted = req.body.accepted
+
+
+  }
   try {
 
     res.user.save().then((updateduser) => {
-      res.json(  updateduser )
+      res.json(updateduser )
 
     })
 
@@ -165,6 +182,7 @@ console.log("code:",code)
     to: email,
     subject: 'Sending verification email',
     text: 'to verif your email enter ' + code
+    
   };
   transporter.sendMail(mailOptions, async function (error, info) {
     if (error) {
